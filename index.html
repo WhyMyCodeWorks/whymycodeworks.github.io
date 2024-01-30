@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Dynamic Parameter Demo</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <h1 id="dynamicContent">Dynamic Content Goes Here</h1>
+
+    <script>
+        // Get the value of the "param" query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const dynamicParam = urlParams.get('param');
+
+        // Display the dynamic parameter on the page
+        const dynamicContentElement = document.getElementById('dynamicContent');
+        if (dynamicParam) {
+            dynamicContentElement.textContent = `Dynamic Parameter: ${dynamicParam}`;
+        }
+    </script>
 </body>
 </html>
