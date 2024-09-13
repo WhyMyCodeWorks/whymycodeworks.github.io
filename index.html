@@ -46,23 +46,30 @@
             let searchParams = new URLSearchParams(window.location.search);
             return searchParams.get(name);
         }
-
+        const store = `https://apps.apple.com/vn/app/dramahub-watch-reels-tv/id6505047371`
+        const baseUrl = 'https://app.dramahub.me/share'
         // Get 'film' and 'episode' parameters from the URL
         const film = getUrlParameter('film');
         const episode = getUrlParameter('episode');
+        const redirect = getUrlParameter('redirect');
+        if (redirect) {
+            window.location.href = store
+        }else{
+            // Check if both parameters exist
+            if (film && episode) {
+                // Create a new link
+                const newLink = `https://dramahubshare.page.link/?link=${baseUrl}?film%3D${film}%26episode%3D${episode}%26redirect=true&amp;isi=6505047371&amp;ibi=com.reel.drama.hub.tv&amp;ifl=${baseUrl}?film%3D${film}%26episode%3D${episode}%26redirect=true&amp;cid=9087948420415914931`;
+                
+                alert(`Button is ready ${film} ${episode}`)
+                // Update the href of the existing anchor tag
+                document.getElementById('pzc6ed').href = newLink;
+                document.getElementById('meta_content').content = `${baseUrl}?film=${film}&amp;episode=${episode}`;
 
-        // Check if both parameters exist
-        if (film && episode) {
-            // Create a new link
-            const newLink = `https://dramahubshare.page.link/?link=https://app.dramahub.me/share?film%3D${film}%26episode%3D${episode}&amp;isi=6505047371&amp;ibi=com.reel.drama.hub.tv&amp;ifl=https://app.dramahub.me/share?film%3D${film}%26episode%3D${episode}&amp;cid=9087948420415914931`;
-            
-            alert(`Button is ready ${film} ${episode}`)
-            // Update the href of the existing anchor tag
-            document.getElementById('pzc6ed').href = newLink;
-            document.getElementById('meta_content').content = `https://app.dramahub.me/share?film=${film}&amp;episode=${episode}`;
-        } else {
-            alert('Invalid url')
+            } else {
+                alert('Invalid url')
+            }
         }
+
     </script>
       <script nonce="">"use strict";this.default_DurableDeepLinkClick=this.default_DurableDeepLinkClick||{};(function(_){var window=this;
          try{
