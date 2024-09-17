@@ -38,7 +38,7 @@
          </div>
       </div>
       <script>
-         var appStoreURL = "https://dramahubshare.page.link/?link=https://app.dramahub.me/share?film%253D131&isi=6505047371&ibi=com.reel.drama.hub.tv&efr=1"; // App Store URL
+         var appStoreURL = "https://dramahubshare.page.link/?link=https://app.dramahub.me/share?film%253D120&isi=6505047371&ibi=com.reel.drama.hub.tv&cid=5623501071183379673&_icp=1"
          const redirect = getUrlParameter('redirect');
          if (redirect) {
             // Fallback to the App Store after 2 seconds if the app is not installed
@@ -62,7 +62,7 @@
             openApp()
          });
          function copyTextToClipboard() {
-            const textToCopy = "https://dramahubshare.page.link/?link=https://app.dramahub.me/share?film%253D131&isi=6505047371&ibi=com.reel.drama.hub.tv&efr=1"; // The text you want to copy
+            const textToCopy = appStoreURL
             navigator.clipboard.writeText(textToCopy).then(function() {
                console.log("Text copied to clipboard successfully!");
             }).catch(function(error) {
