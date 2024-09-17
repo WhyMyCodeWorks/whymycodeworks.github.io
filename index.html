@@ -13,9 +13,8 @@
    <body style="background-color:#fff">
       <div class="IpzX7e-DARUcf-haAclf">
          <div class="IpzX7e-DARUcf-bN97Pc">
-            <a href="https://app.dramahub.me/share?film=131" class="button-link">Open in App 1</a>
-            <a href="https://app.dramahub.me/share?film=131" id="openAppLink2" class="button-link">Open in App 2</a>
-            <a href="https://app.dramahub.me/share?film=131" id="openAppLink3" class="button-link">Open in App 2</a>
+            <a href="https://app.dramahub.me/share?film=131&redirect=true" class="button-link">Open in App 1</a>
+            <a href="https://app.dramahub.me/share?film=131&redirect=true" id="openAppLink" class="button-link">Open in App 2</a>
             <div class="IpzX7e-DARUcf-bN97Pc-SmKAyb"><span class="IpzX7e-DARUcf-r4nke"><img src="//lh3.googleusercontent.com/ezc4NYTstAnmcFex3eIIwyD4nZLrC6Qbx524ZMAU4my0eqSkX5GjcFTnhBr1bAM2-qzkI3mjmQ" class="IpzX7e-DARUcf-Bz112c" aria-hidden="true" role="none">DramaHub: Watch Reels &amp; TV</span><span class="IpzX7e-DARUcf-ij8cu x988Cb">Stream Your Heart, Entertain Your Soul
                Streaming short dramas and reels has never been more convenient than with DramaHub: Watch Reels &amp; TV, the newest streaming service in reel format on App Store that will immerse you in a captivating world of miniature dramas. With DramaHub, you can access thousands of hours of original, one-of-a-kind short drama and reels in a huge range of genres. DramaHub will take you to a world of creativity, emotions, and captivating storytelling.
                [Diverse Selection of Genres]
@@ -39,47 +38,23 @@
          </div>
       </div>
       <script>
-         function openApp2() {
-            var appLink = "https://app.dramahub.me/share?film=131"; // Your custom URL scheme
-            var appStoreURL = "https://apps.apple.com/us/app/6505047371"; // App Store URL
-            
-            // Try opening the app via custom URL scheme
-            // window.location = appLink;
-            
+         var appStoreURL = "https://dramahubshare.page.link/?link=https://app.dramahub.me/share?film%253D131&isi=6505047371&ibi=com.reel.drama.hub.tv&efr=1"; // App Store URL
+         const redirect = getUrlParameter('redirect');
+         if (redirect) {
             // Fallback to the App Store after 2 seconds if the app is not installed
             setTimeout(function() {
                window.location.href = appStoreURL;
             }, 5000);
+            return
          }
-         document.getElementById("openAppLink2").addEventListener("click", function(event) {
-            // Prevent the default behavior of the link (optional)
-            // event.preventDefault();
-
-            // Custom logic (e.g., log the click event or check conditions)
-            console.log("Link clicked!");
-
-            openApp2()
-         });
-
-         function openApp3() {
-            var appLink = "https://app.dramahub.me/share?film=131"; // Your custom URL scheme
-            var appStoreURL = "https://apps.apple.com/us/app/6505047371"; // App Store URL
-            
+         function openApp() {
+            var appLink = "https://app.dramahub.me/share?film=131&redirect=true"; // Your custom URL scheme
             // Try opening the app via custom URL scheme
             window.location = appLink;
-            
-            // Fallback to the App Store after 2 seconds if the app is not installed
-            setTimeout(function() {
-               window.location.href = appStoreURL;
-            }, 5000);
          }
-         document.getElementById("openAppLink3").addEventListener("click", function(event) {
-            // Prevent the default behavior of the link (optional)
-            // event.preventDefault();
-
-            // Custom logic (e.g., log the click event or check conditions)
+         document.getElementById("openAppLink2").addEventListener("click", function(event) {
+            this.textContent = "Opening... 2";
             console.log("Link clicked!");
-
             openApp()
          });
       </script>
@@ -99,8 +74,8 @@
         // Get 'film' and 'episode' parameters from the URL
         const film = getUrlParameter('film');
         const episode = getUrlParameter('episode');
-        const redirect = getUrlParameter('redirect');
-        if (redirect) {
+        const redirecttt = getUrlParameter('redirecttt');
+        if (redirecttt) {
             window.location.href = store
         }else{
             // Check if both parameters exist
