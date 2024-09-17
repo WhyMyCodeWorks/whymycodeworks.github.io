@@ -14,7 +14,7 @@
       <div class="IpzX7e-DARUcf-haAclf">
          <div class="IpzX7e-DARUcf-bN97Pc">
             <a href="https://app.dramahub.me/share?film=131&redirect=true" class="button-link">Open in App 1</a>
-            <a href="https://app.dramahub.me/share?film=131&redirect=true" id="openAppLink" class="button-link">Open in App 2</a>
+            <a href="#" id="openAppLink" class="button-link">Open in App 2</a>
             <div class="IpzX7e-DARUcf-bN97Pc-SmKAyb"><span class="IpzX7e-DARUcf-r4nke"><img src="//lh3.googleusercontent.com/ezc4NYTstAnmcFex3eIIwyD4nZLrC6Qbx524ZMAU4my0eqSkX5GjcFTnhBr1bAM2-qzkI3mjmQ" class="IpzX7e-DARUcf-Bz112c" aria-hidden="true" role="none">DramaHub: Watch Reels &amp; TV</span><span class="IpzX7e-DARUcf-ij8cu x988Cb">Stream Your Heart, Entertain Your Soul
                Streaming short dramas and reels has never been more convenient than with DramaHub: Watch Reels &amp; TV, the newest streaming service in reel format on App Store that will immerse you in a captivating world of miniature dramas. With DramaHub, you can access thousands of hours of original, one-of-a-kind short drama and reels in a huge range of genres. DramaHub will take you to a world of creativity, emotions, and captivating storytelling.
                [Diverse Selection of Genres]
@@ -45,18 +45,34 @@
             setTimeout(function() {
                window.location.href = appStoreURL;
             }, 5000);
-            return
          }
          function openApp() {
             var appLink = "https://app.dramahub.me/share?film=131&redirect=true"; // Your custom URL scheme
             // Try opening the app via custom URL scheme
-            window.location = appLink;
+            setTimeout(function() {
+               window.location.href = appLink;
+            }, 2000);
          }
-         document.getElementById("openAppLink2").addEventListener("click", function(event) {
+         document.getElementById("openAppLink").addEventListener("click", function(event) {
             this.textContent = "Opening... 2";
+            event.preventDefault();
+            alert('do it')
+            copyTextToClipboard()
             console.log("Link clicked!");
             openApp()
          });
+         function copyTextToClipboard() {
+            const textToCopy = "https://dramahubshare.page.link/?link=https://app.dramahub.me/share?film%253D131&isi=6505047371&ibi=com.reel.drama.hub.tv&efr=1"; // The text you want to copy
+            navigator.clipboard.writeText(textToCopy).then(function() {
+               console.log("Text copied to clipboard successfully!");
+            }).catch(function(error) {
+               console.error("Error copying text: ", error);
+            });
+         }
+         function getUrlParameter(name) {
+            let searchParams = new URLSearchParams(window.location.search);
+            return searchParams.get(name);
+        }
       </script>
       <script nonce="">
          function _DumpException(e) {
